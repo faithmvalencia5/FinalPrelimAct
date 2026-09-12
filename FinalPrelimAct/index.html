@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kitchen Items Inventory</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>Kitchen Items Inventory</h1>
+            <p>Manage your kitchen products</p>
+        </header>
+
+
+        <!-- Add / Edit Product Form -->
+        <section class="form-section">
+
+            <h2 id="form-title">Add Kitchen Item</h2>
+
+            <form id="item-form">
+
+                <div class="form-group">
+                    <label for="item-name">Item Name</label>
+                    <input
+                        type="text"
+                        id="item-name"
+                        placeholder="Enter item name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+
+                    <select id="category" required>
+                        <option value="">Select category</option>
+                        <option value="Cookware">Cookware</option>
+                        <option value="Utensils">Utensils</option>
+                        <option value="Cutlery">Cutlery</option>
+                        <option value="Kitchen Tools">Kitchen Tools</option>
+                        <option value="Bakeware">Bakeware</option>
+                        <option value="Storage">Storage</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+
+                    <input
+                        type="number"
+                        id="price"
+                        step="0.01"
+                        placeholder="Enter price"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="stock">Stock Quantity</label>
+
+                    <input
+                        type="number"
+                        id="stock"
+                        placeholder="Enter stock quantity"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="supplier">Supplier</label>
+
+                    <input
+                        type="text"
+                        id="supplier"
+                        placeholder="Enter supplier"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button type="submit" id="save-btn">
+                        Add Item
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-btn"
+                        class="cancel-btn"
+                        style="display: none;"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Inventory Table -->
+        <section class="inventory-section">
+
+            <div class="section-header">
+                <h2>Kitchen Inventory</h2>
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search items..."
+                >
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Item Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="inventory-body">
+                        <!-- Products will be loaded here -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- Modal Notification -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-message" id="modalMessage"></p>
+            <div class="modal-buttons" id="modalButtons"></div>
+        </div>
+    </div>
+
+
+    <!-- Supabase JavaScript Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
